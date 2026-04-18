@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Member;
+use App\Models\Booking;
 use Illuminate\Http\Request;
 
 class MemberController extends Controller
@@ -22,4 +23,10 @@ class MemberController extends Controller
     {
         return response()->json(Member::find($id));
     }
- }    
+
+    public function showMemberBookings($id)
+    {
+        $bookings = Booking::all()->where('memberid', $id);
+        return response()->json($bookings);
+    }
+}

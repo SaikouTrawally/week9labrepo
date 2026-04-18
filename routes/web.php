@@ -14,4 +14,8 @@ $router->group(['prefix' => 'api'], function () use ($router) {
     $router->get('members', 'MemberController@showAllMembers');
     $router->get('members/{id}', 'MemberController@showOneMember');
     $router->get('member/{id}/bookings', 'MemberController@showMemberBookings');
+
+    $router->post('members', 'MemberController@create');
+    $router->put('members/{id}', 'MemberController@update');
+    $router->delete('members/{id}', 'MemberController@delete');
 });
